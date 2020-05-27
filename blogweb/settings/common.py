@@ -127,6 +127,10 @@ USE_TZ = False
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
+s_path = os.path.join(BASE_DIR, 'blog')
+STATICFILES_DIRS = (
+    os.path.join(s_path, 'static'),
+)
 
 # for all
 STATICFILES_FINDERS = (
