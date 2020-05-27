@@ -124,7 +124,7 @@ USE_L10N = True
 USE_TZ = False
 
 ### 静态文件设置 ####
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
