@@ -1,0 +1,12 @@
+<div class="widget widget-tag-cloud">
+    <h3 class="widget-title">推荐阅读</h3>
+    <ul>
+        {% for post in same_category_list %}
+            <li>
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </li>
+        {% empty %}
+            该类别下暂无推荐
+        {% endfor %}
+    </ul>
+</div>

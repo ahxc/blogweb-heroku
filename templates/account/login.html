@@ -1,0 +1,48 @@
+{% extends 'base_account.html' %}
+{% load static %}
+
+{% block header %}
+<title>登录</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="form-signin-heading text-center">登录你的账户</h2>
+
+        <div class="card card-signin">
+            <img class="img-circle profile-img" src="{% static 'img/avatar.png' %}" alt="">
+
+            <form class="form-signin" action="{% url 'account:login' %}" method="post">
+                {% csrf_token %}
+                {% comment %}
+                <label for="inputEmail" class="sr-only">Email address</label>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>{% endcomment %}
+                <!--form表单空字段方法，这里account.forms继承的AuthenticationForm-->
+                {{ form.non_field_errors }}
+                <!-- 用filed逐步调用表单login或register中fields字段-->
+                {% for field in form %}
+                    {{ field }}
+                    {{ field.errors }}
+                {% endfor %}
+                <input type="hidden" name="next" value="{{ redirect_to }}">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+                <div class="checkbox">
+                    {% comment %}<a class="pull-right">Need help?</a>{% endcomment %}
+                    <label>
+                        <input type="checkbox" value="remember-me">保持登录状态
+                    </label>
+                </div>
+                {% load oauth_tags %}
+                {% load_oauth_applications request%}
+            </form>
+        </div>
+
+        <p class="text-center">
+            <a href="{% url 'account:register' %}">注册账号</a>
+            |<!-- 分隔符 -->
+            <a href="/">返回首页</a>
+        </p>
+    </div>
+{% endblock %}

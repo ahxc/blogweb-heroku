@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load comments_extras %}
+{% load blog_extras %}
+
+{% block header %}
+<title>{{ post.title }}</title>
+{% endblock %}
+
+{% block main %}
+    <article class="post post-{{ post.pk }}">
+        <header class="entry-header">
+            <h1 class="entry-title">{{ post.title }}</h1>
+            <div class="entry-meta">
+                <span class="post-category"><a href="#">{{ post.category.name }}</a></span>
+                <span class="post-date"><a href="#"><time class="entry-date"
+                    datetime="{{ post.created_time }}">{{ post.created_time }}</time></a></span>
+                <span class="post-author"><a href="#">{{ post.author }}</a></span>
+                <span class="comments-link"><a href="#comment-area">{{ comment_count }}评论</a></span>
+                <span class="views-count"><a href="#">{{ post.views }}阅读</a></span>
+            </div>
+        </header>
+        <div class="entry-content clearfix">
+            {{ post.body|safe }}
+        </div>
+    </article>
+    <hr>
+    <div id="content" role="main">
+        {% if post.type == 'a' %}
+            <nav class="nav-single">
+                {% if prev_post %}
+                    <span class="nav-previous">
+                        <a href="{{ prev_post.get_absolute_url }}" rel="prev">
+                            <span class="meta-nav">&larr;</span>
+                            {{ prev_post.title }}
+                        </a>
+                    </span>
+                {% endif %}
+
+                {% if next_post %}
+                    <span class="nav-next">
+                        <a href="{{ next_post.get_absolute_url }}" rel="next">
+                            {{ next_post.title }}
+                            <span class="meta-nav">&rarr;</span>
+                        </a>
+                    </span>
+                {% endif %}
+            </nav>
+        {% endif %}
+    </div>
+    {% show_recommended_reading post %}
+    <section class="comment-area" id="comment-area">
+        <!--分割线-->
+        <hr>
+        <!--评论表单接收一个post文章实例-->
+        {% if post.comment_status == 'o'%}
+            {% include "comment/inclusions/_list.html" %}
+            {% if user.is_authenticated %}
+                {% include "comment/inclusions/_form.html" %}
+            {% else %}
+                <div class="comments-area">
+                    <h3 class="comment-meta">您还没有登录，请您<a
+                            href="{% url 'account:login' %}?next={{ request.get_full_path }}" rel="nofollow">登录</a>后发表评论。
+                    </h3>
+                    {% load oauth_tags %}
+                    {% load_oauth_applications request %}
+                </div>
+            {% endif %}
+        {% endif %}
+    </section>
+{% endblock main %}

@@ -1,0 +1,31 @@
+{% extends 'base_account.html' %}
+{% load static %}
+
+{% block header %}
+<title>注册</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="form-signin-heading text-center">创建你的账户</h2>
+
+        <div class="card card-signin">
+            <img class="img-circle profile-img" src="{% static 'img/avatar.png' %}" alt="">
+
+            <form class="form-signin" action="{% url 'account:register' %}" method="post">
+                {% csrf_token %}
+                <!--form表单空字段方法，这里account.forms继承的UserCreationForm-->
+                {{ form.non_field_errors }}
+                {% for field in form %}
+                    {{ field }}
+                    {{ field.errors }}
+                {% endfor %}
+                <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+            </form>
+        </div>
+
+        <p class="text-center">
+            已有账号？点 <a href="{% url 'account:login' %}">这里</a> 登录
+        </p>
+    </div>
+{% endblock %}
