@@ -13,6 +13,7 @@ django-haystack==2.8.1
 django-mdeditor==0.1.18
 django-pure-pagination==0.3.0
 djangorestframework==3.11.0
+dj-static
 docopt==0.6.2
 faker
 gunicorn==20.0.4
@@ -41,7 +42,6 @@ urllib3==1.25.9
 websocket-client==0.57.0
 zipp==3.1.0
 dj-database-url==0.5.0
-dj-static==0.0.6
 django-heroku==0.3.1
 psycopg2==2.8.4
 static3==0.7.0

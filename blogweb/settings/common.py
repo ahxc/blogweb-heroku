@@ -123,11 +123,11 @@ USE_L10N = True
 # 是否使用UTC国际协调时间存储数据，为True可能造成模板与mysql数据库时间不一致问题
 USE_TZ = False
 
-### 静态文件设置 for nginx ####
-#STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')
+### 静态文件设置 ####
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+
 
 # for all
 STATICFILES_FINDERS = (
