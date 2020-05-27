@@ -13,6 +13,7 @@ django-haystack==2.8.1
 django-mdeditor==0.1.18
 django-pure-pagination==0.3.0
 djangorestframework==3.11.0
+dj-static
 docopt==0.6.2
 faker
 gunicorn==20.0.4
