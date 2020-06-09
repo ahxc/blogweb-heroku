@@ -49,13 +49,7 @@ if __name__ == '__main__':
     for tag in tag_list:
         Tag.objects.create(name=tag)
 
-'''    print('create a markdown sample post')
-    Post.objects.create(
-        title='Markdown代码高亮测试',
-        body=pathlib.Path(BASE_DIR).joinpath('scripts', 'md.sample').read_text(encoding='utf-8'),
-        category=Category.objects.create(name='Markdown测试'),
-        author=user,
-        )'''
+
 
 ### 创建100篇英文post ###
     print('create some faked posts publised within the past year')
@@ -101,3 +95,11 @@ if __name__ == '__main__':
                     tzinfo=timezone.get_current_timezone()),
                 post=post,
                 )"""
+
+'''    print('create a markdown sample post')
+    Post.objects.create(
+        title='Markdown代码高亮测试',
+        body=pathlib.Path(BASE_DIR).joinpath('scripts', 'md.sample').read_text(encoding='utf-8'),
+        category=Category.objects.create(name='Markdown测试'),
+        author=user,
+        )'''
