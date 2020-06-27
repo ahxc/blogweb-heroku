@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'pure_pagination',# 分页
     'compressor',# 静态文件加速器
     'mdeditor',# markdown编辑器
-    'rest_framework',
+    'rest_framework',# drf
+    'captcha',# 验证码
     # 'haystack'# 搜索框架
 ]
 
