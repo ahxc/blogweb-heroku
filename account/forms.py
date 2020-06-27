@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.forms import widgets
+from captcha.fields import CaptchaField
 
 from .models import BlogUser
 
@@ -50,3 +51,6 @@ class LoginForm(AuthenticationForm):
 
         self.fields['password'].widget = widgets.PasswordInput(
             attrs={'placeholder': "密码", "class": "form-control"})
+
+        self.fields['captcha'].widget = CaptchaField(label='验证码')
+

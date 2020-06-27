@@ -16,4 +16,5 @@ urlpatterns = [
     path('all/rss/', AllPostsRssFeed(), name='rss'),
     path("api/", include(router.urls)),# 自动注册视图函数
     path("api/auth/", include("rest_framework.urls", namespace="rest_framework")),
+    path('captcha/', include('captcha.urls'))
 ]
