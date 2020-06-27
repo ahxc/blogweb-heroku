@@ -52,4 +52,4 @@ class LoginForm(AuthenticationForm):
         self.fields['password'].widget = widgets.PasswordInput(
             attrs={'placeholder': "密码", "class": "form-control"})
 
-        self.fields['captcha'].widget = CaptchaField(label='验证码')
+        self.fields['captcha'] = CaptchaField(label='验证码')
