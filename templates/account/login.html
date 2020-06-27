@@ -22,10 +22,13 @@
                 <!--form表单空字段方法，这里account.forms继承的AuthenticationForm-->
                 {{ form.non_field_errors }}
                 <!-- 用filed逐步调用表单login或register中fields字段-->
-                {% for field in form %}
+                {{ form.username }}
+                {{ form.password }}
+                {{ form.captcha }}
+                <!-- {% for field in form %}
                     {{ field }}
                     {{ field.errors }}
-                {% endfor %}
+                {% endfor %} -->
                 <input type="hidden" name="next" value="{{ redirect_to }}">
                 <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
                 <div class="checkbox">
