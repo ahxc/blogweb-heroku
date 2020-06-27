@@ -16,10 +16,15 @@
                 {% csrf_token %}
                 <!--form表单空字段方法，这里account.forms继承的UserCreationForm-->
                 {{ form.non_field_errors }}
-                {% for field in form %}
+                {{ form.username }}
+                {{ form.email }}
+                {{ form.password1 }}
+                {{ form.password2 }}
+                {{ form.captcha }}
+                <!-- {% for field in form %}
                     {{ field }}
                     {{ field.errors }}
-                {% endfor %}
+                {% endfor %} -->
                 <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
             </form>
         </div>

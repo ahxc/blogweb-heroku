@@ -26,6 +26,8 @@ class RegisterForm(UserCreationForm):
         self.fields['password2'].widget = widgets.PasswordInput(
             attrs={'placeholder': "再次确认密码", "class": "form-control"})
 
+        self.fields['captcha'] = CaptchaField(label='验证码')
+
     def clean_email(self):
         email = self.cleaned_data['email']
 
