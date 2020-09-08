@@ -6,7 +6,7 @@ from .common import *
 #SECRET_KEY = production_secret_key
 SECRET_KEY = 'n9ceqv38)#&mwuat@(mjb_p%em$e8$qyr#fw9ot!=ba6lijx-6'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['blogweb-django.herokuapp.com']
 
