@@ -27,6 +27,7 @@ def send_email_signal_handler(sender, **kwargs):
     title = kwargs['title']
     content = kwargs['content']
 
+    # 邮件发送
     msg = EmailMultiAlternatives(
         title,
         content,

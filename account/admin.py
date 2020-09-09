@@ -8,7 +8,7 @@ from django.utils.translation import gettext, gettext_lazy as _
 
 from .models import BlogUser
 
-### 用户创建 ###
+### admin用户创建 ###
 class BlogUserCreationForm(forms.ModelForm):
     password1 = forms.CharField(label='密码', widget=forms.PasswordInput)
     password2 = forms.CharField(label='再次输入密码', widget=forms.PasswordInput)

@@ -12,6 +12,7 @@ class BlogUser(AbstractUser):
 
     source = models.CharField('创建来源', max_length=100, blank=True)
 
+    # 返回绝对路径函数
     def get_absolute_url(self):
         return reverse(
             'blog:author_detail', kwargs={'author_name': self.username})
